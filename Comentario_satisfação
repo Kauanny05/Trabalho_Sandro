@@ -1,0 +1,33 @@
+def MensagemAvaliacao():
+    while True:
+        mensagem = input("Digite seu comentario (digite 'sair' para encerrar): ").lower()
+
+        if mensagem.lower() == 'sair':
+            print("Saindo...")
+            break 
+
+        Reclamacoes = ['péssimo', 'horrivel', 'terrivel', 'raiva', 'ódio', 'odeio', 'ruim', 'não gostei']
+        Elogios = ['bom', 'ótimo', 'perfeito', 'adorei', 'amei', 'maravilhoso', 'gostei']
+        Palavroes = ['filho da puta', 'seu merda', 'pqp', 'puta']
+
+        if mensagem in Elogios:
+            with open('elogios.txt', 'a') as arquivo:
+                arquivo.write(mensagem + '\n')
+            print("Comentario adicionado com sucesso!")
+
+        elif mensagem in Reclamacoes:
+            with open('reclamacao.txt', 'a') as arquivo:
+                arquivo.write(mensagem + '\n')
+            print("Comentario adicionado com sucesso!")
+
+        elif mensagem in Palavroes:
+            with open('palavrasInapropriadas.txt', 'a') as arquivo:
+                arquivo.write(mensagem + '\n')
+            print("Comentario adicionado com sucesso!")
+
+        else:
+            with open('Outros.txt', 'a') as arquivo:
+                arquivo.write(mensagem + '\n')
+            print("Comentario adicionado com sucesso!")
+
+MensagemAvaliacao()
